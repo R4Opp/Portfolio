@@ -7,8 +7,6 @@ class PortfoliosController < ApplicationController
     @python_portfolio_items = Portfolio.python
   end
 
-  def
-
   def new
     @portfolio_items = Portfolio.new
   end
