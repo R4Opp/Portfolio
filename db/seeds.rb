@@ -1,3 +1,11 @@
+3.times do |topic|
+  Topic.create!(
+    title: "Topic #{topic}"
+  )
+end
+
+puts "3 topics created"
+
 10.times do |blog|
   Blog.create!(
     title: "My Blog Post #{blog}!",
@@ -9,7 +17,8 @@
     essentially unchanged. It was popularised in the 1960s with the release of
     Letraset sheets containing Lorem Ipsum passages, and more recently with
     desktop publishing software like Aldus PageMaker including versions of
-    Lorem Ipsum."
+    Lorem Ipsum.",
+  topic_id: Topic.last.id
   )
 end
 
@@ -24,10 +33,24 @@ end
 
 puts "5 skills created"
 
-9.times do |portfolio_item|
+8.times do |portfolio_item|
   Portfolio.create!(
     title: "Portfolio title #{portfolio_item}",
-    subtitle: "My great service",
+    subtitle: "Ruby on Rails",
+    body: 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced
+    below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus
+    Bonorum et Malorum" by Cicero are also reproduced in their exact original
+    form, accompanied by English versions from the 1914 translation by
+    H. Rackham.',
+    main_image: "https://via.placeholder.com/600x400",
+    thumb_image: "https://via.placeholder.com/350x200"
+  )
+end
+
+1.times do |portfolio_item|
+  Portfolio.create!(
+    title: "Portfolio title #{portfolio_item}",
+    subtitle: "Python",
     body: 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced
     below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus
     Bonorum et Malorum" by Cicero are also reproduced in their exact original
@@ -39,3 +62,11 @@ puts "5 skills created"
 end
 
 puts "9 portfolio_items created"
+
+3.times do |technology|
+  Portfolio.last.technologies.create!(
+    name: "Technology #{technology}"
+  )
+end
+
+puts "3 technologies created"
