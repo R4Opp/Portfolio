@@ -6,3 +6,10 @@
 <p><%= @portfolio_items.body %></p>
 
 <%= image_tag @portfolio_items.main_image unless @portfolio_items.main_image.nil? %>
+
+
+<h2>Technologies Used</h2>
+
+<% @portfolio_items.technologies.each do |t| %>
+<p><%= t.name %></p>
+<% end %>
